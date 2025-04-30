@@ -8,10 +8,11 @@ import { assistant } from "./fonts";
 
 const navigation = [
   { name: "PROGRAMAS", href: "/programas" },
+  { name: "NOTICIAS", href: "/noticias" },
+  { name: "HISTORIAS", href: "/historias" },
   { name: "ENTREVISTAS", href: "/entrevistas" },
   { name: "CUENTOS", href: "/cuentos" },
-  { name: "OTROS", href: "/otros" },
-  { name: "NOSOTROS", href: "/nosotros" },
+  { name: "NOSOTROS", href: "/" },
 ];
 
 const navigationRedes = [
@@ -37,12 +38,12 @@ export default function NavBar() {
   return (
     <>
       {pathname === "/" && <Header />}
-      <nav className="bg-gray-800 p-2 sticky top-0 ">
+      <nav className="bg-gray-800 p-2 sticky top-0 z-50">
         <div className="container mx-auto flex justify-between items-center">
           <div className="-my-2">
             <Link href="/">
               <Image
-                src="/logo2.jpeg"
+                src="/logo.webp"
                 alt="Logo"
                 className="mr-4"
                 width={50}

@@ -1,21 +1,41 @@
-import Image from "next/image";
-import { db } from "../firebase/config";
+"use client";
+import Circles from "./ui/circles.js";
+import Logo from "./ui/logo.js";
 
 export default function Home() {
+  const handleVideoClick = (e) => {
+    const video = e.target;
+    if (video.paused) {
+      video.play();
+    } else {
+      video.pause();
+    }
+  };
+
   return (
-    <>
-      <div className="pt-4 container mx-auto flex justify-center items-center">
-        <iframe
-          width="560"
-          height="315"
-          src="https://www.youtube.com/embed/dUeGK11sz8U?autoplay=1"
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowFullScreen
-        ></iframe>
+    <main className="relative min-h-screen bg-fondo1">
+      <Logo />
+
+      <div className="absolute bottom-8 left-0 right-0 flex justify-between px-10">
+        <Circles
+          videoSrc="/videos/graciela.mp4"
+          posterSrc="/miniaturas/graciela.webp"
+          onClick={handleVideoClick}
+          className="self-end translate-x-[12vw] translate-y-[-12.5vw] border-graciela shadow-neonGraciela"
+        />
+        <Circles
+          videoSrc="/videos/dario.mp4"
+          posterSrc="/miniaturas/dario.webp"
+          onClick={handleVideoClick}
+          className="self-end translate-y-[-1vw] shadow-neonDario border-dario"
+        />
+        <Circles
+          videoSrc="/videos/miriam.mp4"
+          posterSrc="/miniaturas/miriam.webp"
+          onClick={handleVideoClick}
+          className="self-end translate-x-[-12vw] translate-y-[-12.5vw] border-miriam shadow-neonMiriam"
+        />
       </div>
-    </>
+    </main>
   );
 }
