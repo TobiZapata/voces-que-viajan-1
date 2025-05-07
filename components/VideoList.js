@@ -32,7 +32,7 @@ export default function VideoList({ collectionName }) {
   };
 
   return (
-    <div className="p-6 flex justify-center">
+    <div className="p-6 flex flex-col items-center">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
         {videos.slice(0, visibleCount).map((video) => {
           const match = video.link.match(/embed\/([a-zA-Z0-9_-]+)/);
@@ -43,7 +43,7 @@ export default function VideoList({ collectionName }) {
 
           return (
             <Link key={video.id} href={`/videos/${collectionName}/${video.id}`}>
-              <div className="bg-white w-60 rounded-xl border border-gray-300 shadow-md hover:shadow-xl hover:scale-105 transition-transform duration-300 overflow-hidden cursor-pointer mx-auto">
+              <div className="bg-fondo1 hover:animate-pulse-glow w-80 rounded-md border-2 border-dario hover:scale-105 transition-transform duration-300 overflow-hidden cursor-pointer mx-auto">
                 <img
                   src={thumbnailUrl}
                   alt={video.titulo || "Miniatura del video"}
@@ -62,7 +62,7 @@ export default function VideoList({ collectionName }) {
         <div className="flex justify-center mt-8 w-full">
           <button
             onClick={handleShowMore}
-            className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition"
+            className="bg-dario/80 text-black px-6 py-2 rounded hover:bg-dario transition-opacity"
           >
             Cargar más
           </button>

@@ -18,11 +18,10 @@ export default async function VideoDetailPage({ params }) {
   const video = docSnap.data();
 
   return (
-    <div className="p-4 max-w-4xl mx-auto">
-      <h1 className="text-2xl font-bold mb-4 text-center">{video.titulo}</h1>
-
-      <div className="flex justify-center">
-        <div className="relative w-full max-w-2xl pb-[56.25%] h-0 overflow-hidden rounded shadow-lg">
+    <div className="p-4 max-w-4xl mx-auto ">
+      <h1 className="text-3xl font-bold mb-4 text-center">{video.titulo}</h1>
+      <div className="flex justify-center ">
+        <div className="relative w-full max-w-2xl pb-[56.25%] h-0 overflow-hidden bg-fondo1 rounded shadow-lg">
           <iframe
             src={video.link}
             title={video.titulo}
@@ -31,6 +30,9 @@ export default async function VideoDetailPage({ params }) {
           ></iframe>
         </div>
       </div>
+      <h2 className="w-[35vw] translate-x-24 text-xl font-bold my-4 text-center bg-black/70">
+        {video.descripcion}
+      </h2>
     </div>
   );
 }

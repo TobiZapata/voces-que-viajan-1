@@ -12,10 +12,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className="!scroll-smooth">
       <body
-        className={`${montserrat.className} antialiased overflow-x-hidden bg-fondo1`}
+        className={`${montserrat.className} antialiased overflow-x-hidden bg-fondo1 bg-repeat-round min-h-screen flex flex-col`}
       >
         <NavBar />
-        {children}
+        <main className="flex-grow">{children}</main>
         <Footer />
       </body>
     </html>

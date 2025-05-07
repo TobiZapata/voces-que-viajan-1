@@ -18,12 +18,17 @@ export default function Footer() {
       icon: SiSpotify,
       href: "https://open.spotify.com/show/5yidYBDNPajgIFmaU9fChg?si=4afd8c68987047b6",
     },
+    {
+      name: "Tiktok",
+      icon: SiTiktok,
+      href: "https://www.tiktok.com/@dz_74_",
+    },
   ];
 
   return (
-    <footer className="bg-gray-800 text-white py-4">
+    <footer className="bg-white/10 text-gray-500 py-4">
       <div className="container mx-auto text-center">
-        <div className="flex space-x-4 text-xl">
+        <div className="flex space-x-4 text-3xl mb-2 justify-center">
           {navigationRedes.map((item) => (
             <Link href={item.href} key={item.name} target={"_blank"}>
               <div className="text-white hover:text-gray-300">
@@ -32,21 +37,7 @@ export default function Footer() {
             </Link>
           ))}
         </div>
-        <p>
-          &copy; {new Date().getFullYear()} VocesQueViajan. Todos los derechos
-          reservados.
-        </p>
-        <div className="mt-2">
-          <a
-            href="/privacy-policy"
-            className="text-gray-400 hover:text-white mx-2"
-          >
-            Política de privacidad
-          </a>
-          <a href="/terms" className="text-gray-400 hover:text-white mx-2">
-            Términos y condiciones
-          </a>
-        </div>
+        <p>&copy; {new Date().getFullYear()} VocesQueViajan.</p>
       </div>
     </footer>
   );
