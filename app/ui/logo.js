@@ -2,7 +2,7 @@
 
 export default function Logo() {
   return (
-    <div className="relative size-[25.2vw] rounded-full translate-x-[37vw] translate-y-[0.2vw] flex items-center justify-center">
+    <div className="relative md:size-[25.2vw] size-[50vw] rounded-full md:translate-x-[37vw] translate-x-[25vw] translate-y-[0.2vw] flex items-center justify-center">
       {/* Borde con animación de pulso */}
       <div
         className="absolute inset-0 rounded-full z-0 
@@ -14,7 +14,7 @@ export default function Logo() {
       <img
         src="/logo.webp"
         alt="Logo"
-        className="relative z-10 size-[24.8vw] rounded-full object-cover"
+        className="relative z-10 md:size-[24.8vw] size-[49.5vw] rounded-full object-cover"
       />
     </div>
   );

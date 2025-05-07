@@ -10,7 +10,7 @@ export default function Circles({
   return (
     <div className="relative w-fit">
       <video
-        className={`size-[18vw] rounded-full object-cover cursor-pointer shadow-lg border-4 ${className}`}
+        className={`md:size-[18vw] size-[50vw] rounded-full object-cover cursor-pointer shadow-lg border-4 ${className}`}
         src={videoSrc}
         onClick={onClick}
         onEnded={(e) => {

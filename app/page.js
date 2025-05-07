@@ -16,24 +16,24 @@ export default function Home() {
     <main className="relative min-h-screen bg-fondo1">
       <Logo />
 
-      <div className="absolute bottom-8 left-0 right-0 flex justify-between px-10">
+      <div className="flex flex-col items-center justify-center gap-6 min-h-[70vh] md:absolute md:bottom-8 md:left-0 md:right-0 md:flex-row md:justify-between md:px-10">
         <Circles
           videoSrc="/videos/graciela.mp4"
           posterSrc="/miniaturas/graciela.webp"
           onClick={handleVideoClick}
-          className="self-end translate-x-[12vw] translate-y-[-12.5vw] border-graciela shadow-neonGraciela"
+          className="border-graciela shadow-neonGraciela md:self-end md:translate-x-[12vw] md:translate-y-[-5.5vw]"
         />
         <Circles
           videoSrc="/videos/dario.mp4"
           posterSrc="/miniaturas/dario.webp"
           onClick={handleVideoClick}
-          className="self-end translate-y-[-1vw] shadow-neonDario border-dario"
+          className="shadow-neonDario border-dario md:self-end md:translate-y-[7vw]"
         />
         <Circles
           videoSrc="/videos/miriam.mp4"
           posterSrc="/miniaturas/miriam.webp"
           onClick={handleVideoClick}
-          className="self-end translate-x-[-12vw] translate-y-[-12.5vw] border-miriam shadow-neonMiriam"
+          className="border-miriam shadow-neonMiriam md:self-end md:translate-x-[-12vw] md:translate-y-[-5.5vw]"
         />
       </div>
     </main>

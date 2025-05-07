@@ -1,48 +1,63 @@
 "use client";
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import Header from "./header";
+import { useState } from "react";
 
 const navigation = [
-  { name: "PROGRAMAS", href: "/programas", hover: "miriam" },
-  { name: "NOTICIAS", href: "/noticias", hover: "miriam" },
-  { name: "HISTORIAS", href: "/historias", hover: "miriam" },
-  { name: "ENTREVISTAS", href: "/entrevistas", hover: "miriam" },
-  { name: "CUENTOS", href: "/cuentos", hover: "miriam" },
-  { name: "NOSOTROS", href: "/", hover: "miriam" },
+  { name: "PROGRAMAS", href: "/programas" },
+  { name: "NOTICIAS", href: "/noticias" },
+  { name: "HISTORIAS", href: "/historias" },
+  { name: "ENTREVISTAS", href: "/entrevistas" },
+  { name: "CUENTOS", href: "/cuentos" },
+  { name: "NOSOTROS", href: "/" },
 ];
 
 export default function NavBar() {
   const pathname = usePathname();
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <>
       {pathname === "/" && <Header />}
-      <nav className="bg-gray-800 p-2 sticky top-0 z-50">
-        <div className="container mx-auto flex justify-between items-center">
-          <div className="-my-2">
-            <Link href="/">
-              <Image
-                src="/logo.webp"
-                alt="Logo"
-                className="mr-4"
-                width={50}
-                height={50}
-              />
+      <nav className="bg-gray-800 p-4 sticky top-0 z-50">
+        {/* Desktop nav */}
+        <div className="hidden md:flex justify-center space-x-6">
+          {navigation.map((item) => (
+            <Link key={item.name} href={item.href}>
+              <span className="text-white hover:text-gray-400 transition-colors duration-300 cursor-pointer">
+                {item.name}
+              </span>
             </Link>
-          </div>
+          ))}
+        </div>
 
-          <div className="hidden md:flex space-x-4 justify-center items-center w-64 -translate-x-8">
+        {/* Mobile menu button */}
+        <div className="md:hidden flex items-center justify-start">
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="text-white text-2xl focus:outline-none px-2"
+          >
+            ☰
+          </button>
+          <span className="text-white font-bold justify-center">MENÚ</span>
+        </div>
+
+        {/* Mobile menu options */}
+        {isOpen && (
+          <div className="md:hidden mt-2 space-y-2">
             {navigation.map((item) => (
-              <Link href={item.href} key={item.name}>
-                <div className="text-white hover:text-gray-400 transition-colors duration-300">
+              <Link key={item.name} href={item.href}>
+                <span
+                  className="block text-white px-4 py-2 hover:bg-gray-700 transition rounded"
+                  onClick={() => setIsOpen(false)}
+                >
                   {item.name}
-                </div>
+                </span>
               </Link>
             ))}
           </div>
-          <div className="flex space-x-4 text-xl"></div>
-        </div>
+        )}
       </nav>
     </>
   );
