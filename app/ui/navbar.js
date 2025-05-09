@@ -20,7 +20,7 @@ export default function NavBar() {
   return (
     <>
       {pathname === "/" && <Header />}
-      <nav className="bg-gray-800 p-4 sticky top-0 z-50">
+      <nav className="bg-[#303131] p-4 sticky top-0 z-50">
         {/* Desktop nav */}
         <div className="hidden md:flex justify-center space-x-6">
           {navigation.map((item) => (
