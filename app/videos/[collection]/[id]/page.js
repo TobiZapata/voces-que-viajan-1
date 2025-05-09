@@ -16,6 +16,8 @@ export default async function VideoDetailPage({ params }) {
   }
 
   const video = docSnap.data();
+  const match = video.link.match(/(?:\/embed\/|watch\?v=)([a-zA-Z0-9_-]+)/);
+  const videoId = match ? match[1] : null;
 
   return (
     <div className="p-4 max-w-4xl mx-auto ">
@@ -23,7 +25,7 @@ export default async function VideoDetailPage({ params }) {
       <div className="flex justify-center ">
         <div className="relative w-full max-w-2xl pb-[56.25%] h-0 overflow-hidden bg-fondo1 rounded shadow-lg">
           <iframe
-            src={video.link}
+            src={`https://www.youtube.com/embed/${videoId}`}
             title={video.titulo}
             allowFullScreen
             className="absolute top-0 left-0 w-full h-full"

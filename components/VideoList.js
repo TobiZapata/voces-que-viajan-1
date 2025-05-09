@@ -35,7 +35,9 @@ export default function VideoList({ collectionName }) {
     <div className="p-6 flex flex-col items-center">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
         {videos.slice(0, visibleCount).map((video) => {
-          const match = video.link.match(/embed\/([a-zA-Z0-9_-]+)/);
+          const match = video.link.match(
+            /(?:\/embed\/|watch\?v=)([a-zA-Z0-9_-]+)/
+          );
           const videoId = match ? match[1] : null;
           const thumbnailUrl = videoId
             ? `https://img.youtube.com/vi/${videoId}/0.jpg`
