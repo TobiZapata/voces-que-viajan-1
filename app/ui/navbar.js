@@ -25,7 +25,13 @@ export default function NavBar() {
         <div className="hidden md:flex justify-center space-x-6">
           {navigation.map((item) => (
             <Link key={item.name} href={item.href}>
-              <span className="text-white hover:text-gray-400 transition-colors duration-300 cursor-pointer">
+              <span
+                className={`cursor-pointer transition-colors duration-300 ${
+                  pathname === item.href
+                    ? "text-dario font-bold"
+                    : "text-white hover:text-gray-400"
+                }`}
+              >
                 {item.name}
               </span>
             </Link>
@@ -38,9 +44,9 @@ export default function NavBar() {
             onClick={() => setIsOpen(!isOpen)}
             className="text-white text-2xl focus:outline-none px-2"
           >
-            ☰
+            {isOpen ? "✖" : "☰"}
           </button>
-          <span className="text-white font-bold justify-center">MENÚ</span>
+          <span className="text-white font-bold justify-center ml-2">MENÚ</span>
         </div>
 
         {/* Mobile menu options */}
@@ -49,7 +55,11 @@ export default function NavBar() {
             {navigation.map((item) => (
               <Link key={item.name} href={item.href}>
                 <span
-                  className="block text-white px-4 py-2 hover:bg-gray-700 transition rounded"
+                  className={`block px-4 py-2 rounded transition ${
+                    pathname === item.href
+                      ? "bg-dario text-black font-bold"
+                      : "text-white hover:bg-gray-700"
+                  }`}
                   onClick={() => setIsOpen(false)}
                 >
                   {item.name}
