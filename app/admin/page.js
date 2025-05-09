@@ -10,7 +10,6 @@ import {
   collection,
   addDoc,
   query,
-  where,
   onSnapshot,
   deleteDoc,
   updateDoc,
@@ -246,9 +245,9 @@ export default function AdminPage() {
 
       {/* Modal de confirmación de eliminación */}
       {deletingObject && (
-        <div className="fixed inset-0 bg-gray-500 bg-opacity-50 flex justify-center items-center">
-          <div className="bg-white p-6 rounded shadow-md w-80">
-            <h3 className="text-lg font-semibold mb-4">¿Estás seguro?</h3>
+        <div className="fixed  inset-0 bg-gray-500 bg-opacity-50 flex justify-center items-center">
+          <div className="bg-white text-black p-6 rounded shadow-md w-80">
+            <h3 className="text-lg  font-semibold mb-4">¿Estás seguro?</h3>
             <p className="mb-4">
               Estás a punto de eliminar el objeto{" "}
               <strong>{deletingObject.titulo}</strong>.
